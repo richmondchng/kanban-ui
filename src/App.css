@@ -56,25 +56,31 @@
 }
 
 .form-content .form-label {
-  margin-right: 1em;
+  /* margin-left: 1em;
+  margin-top: 2em;
+  padding-top: 1em,; */
   font-weight: bold;
+  margin-top: 2em;
+  display: block;
 }
 
 .form-content .form-text-input {
-  margin-right: 1em;
-  padding: 0.5em;
+  /* margin-left: 1em;*/
+  padding: 0.5em; 
+  margin-right: 0.5em;
   border-width: 1px 1px 1px 1px;
   border-color: rgba(0,0,0,0.2);
   border-radius: 5px;
 }
 
 .form-content .form-btn {
-  color: #000;
   font-weight: bold;
   border-width: 1px 1px 1px 1px;
   border-color: rgba(0,0,0,0.2);
   border-radius: 5px;
   padding: 0.5em;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
   background-color: hotpink;
   cursor: pointer;
 }
@@ -93,20 +99,8 @@
   background-color: #3e8e41;
 } */
 
-.stage-content {
-  /* flex: content; */
-  /* width: auto; */
-  /* flex-flow: row ;
-  justify-content: space-around;
-  overflow: auto; */
-  /* display: inline-flex; */
-  /* justify-content: space-around;
-  flex-flow: row;   */
-  /* float: left;
-  position: relative; */
-  /* flex-flow: row; */
-
-  width: auto;
+.stage-content {  
+  display: flexbox;
 }
 
 .stage-board {
@@ -114,6 +108,9 @@
   padding: 0;
   white-space: nowrap;
   width: fit-content;
+  display: flex;
+
+  /* background-color: #3e8e41; */
 }
 
 .stage-board .stage-card {
@@ -125,8 +122,13 @@
   padding: 2em;
   margin: 1em;
   width: 250px;
+  min-height: 100%;
   text-align: left;
+  vertical-align: top;
   display: inline-block;
+  flex: 1;
+
+  /* background-color: brown; */
 }
 
 .stage-card .task-list {
