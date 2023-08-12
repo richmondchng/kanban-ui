@@ -8,7 +8,7 @@ function App() {
 
   function handleCreateNewTask(e:FormEvent) {
     e.preventDefault()
-    console.log("create task " + e.target)
+    console.log("create task " + newTask)
     setNewTask('')
   }
 
@@ -16,30 +16,30 @@ function App() {
     <>
       <div className="content">
         <h1 className="header">Controller</h1>
-        <div className="formContent">
+        <div className="form-content">
           <form onSubmit={handleCreateNewTask}>
-            <label className="formLabel" htmlFor="newTask">New Task</label>
-            <input className="formTextInput" 
+            <label className="form-label" htmlFor="newTask">New Task</label>
+            <input className="form-text-input" 
               value={newTask}
               onChange={e => setNewTask(e.target.value)}
               type="text" id="newTask" placeholder="Create new task" />
-            <button className="formBtn" type="submit" id="newTaskSubmit">Create Task</button>
+            <button className="form-btn" type="submit" id="newTaskSubmit">Create Task</button>
           </form>
         </div>
       </div>
 
       <div className="content">
         <h1 className="header">Board</h1>
-        <div className="stageBoard">
-          <div className="stageCard">
-            <h2 className="stageHeader">Backlog</h2>
-            <div className="taskCard">Task 1</div>
-            <div className="taskCard">Task 2</div>
+        <div className="stage-board">
+          <div className="stage-card">
+            <h2 className="stage-header">Backlog</h2>
+            <div className="task-card">Task 1</div>
+            <div className="task-card">Task 2</div>
           </div>
-          <div className="stageCard">
-            <h2 className="stageHeader">To do</h2>
-            <div className="taskCard">Task 3</div>
-            <div className="taskCard">Task 4</div>
+          <div className="stage-card">
+            <h2 className="stage-header">To do</h2>
+            <div className="task-card">Task 3</div>
+            <div className="task-card">Task 4</div>
           </div>
         </div>
       </div>

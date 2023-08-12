@@ -50,16 +50,16 @@
   margin: 2em;
 }
 
-.formContent {
+.form-content {
   text-align: left;
 }
 
-.formContent .formLabel {
+.form-content .form-label {
   margin-right: 1em;
   font-weight: bold;
 }
 
-.formContent .formTextInput {
+.form-content .form-text-input {
   margin-right: 1em;
   padding: 0.5em;
   border-width: 1px 1px 1px 1px;
@@ -67,7 +67,7 @@
   border-radius: 5px;
 }
 
-.formContent .formBtn {
+.form-content .form-btn {
   color: #000;
   font-weight: bold;
   border-width: 1px 1px 1px 1px;
@@ -78,20 +78,20 @@
   cursor: pointer;
 }
 
-.formContent .formBtn:hover {
+.form-content .form-btn:hover {
   background-color: #3e8e41
 }
 
-.formContent .formBtn:active {
+.form-content .form-btn:active {
   /* box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); */
   transform: scale(0.98);
 }
 
-.stageBoard {
+.stage-board {
   text-align: left;
 }
 
-.stageCard {
+.stage-card {
   border-style: solid;
   border-width: 1px 1px 1px 1px;
   border-color: rgba(0,0,0,0.2);
@@ -104,11 +104,11 @@
   width: 250px;
 }
 /* 
-.stageBoard .stageCard h2 {
+.stage-board .stage-card h2 {
   padding: 0;
 } */
 
-.taskCard {
+.task-card {
   border-style: solid;
   border-width: 1px 1px 1px 1px;
   border-color: rgba(0,0,0,0.2);
