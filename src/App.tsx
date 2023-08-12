@@ -1,30 +1,32 @@
 import { FormEvent, useState } from 'react'
 import './App.css'
+import Stage from './models/Stage'
+import Task from './models/Task'
 
 function App() {
-  const stages: string[] = ['Backlog', 'To do', 'In progress', 'Done']
+  const stages : Stage[] = [
+    new Stage("backlog", "Backlog", 0), 
+    new Stage("todo", "To do", 1), 
+    new Stage("inprogress", "In progress", 2), 
+    new Stage("done", "Done", 3)
+  ]
+  const [tasks, setTasks] = useState(new Array<Task>())
 
   const [newTask, setNewTask] = useState<string>('')
-  const [tasks, setTasks] = useState({
-    backlog: new Array<string>(),
-    todo: [],
-    inprogress: [],
-    done: []
-  })
-
   function handleCreateNewTask(e:FormEvent) {
     e.preventDefault()
     console.log("create task " + newTask)
 
-    // new tasks are always created in backlog
-    const backlog: string[] = [...tasks.backlog, newTask]
-    // update state
-    setTasks({...tasks, backlog: backlog})
+    // update tasks
+    setTasks(currentTasks => {
+      return [...currentTasks,
+        new Task(newTask, 0)
+      ]
+    })
+    console.log(tasks)
 
     // reset task input
     setNewTask('')
-
-    //console.log(JSON.stringify(tasks))
   }
 
   return (
@@ -47,8 +49,8 @@ function App() {
         <h1 className="header">Board</h1>
         <ul className="stage-board">
           {stages.map((stage) => {
-            return <li className="stage-card" key={stage.replace(' ', '-')}>
-            <h2 className="stage-header">{stage}</h2>
+            return <li className="stage-card" key={stage.name}>
+            <h2 className="stage-header">{stage.title}</h2>
             <ul className="task-list">
               <li className="task-card">Task 1</li>
               <li className="task-card">Task 2</li>
