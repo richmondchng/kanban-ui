@@ -4,12 +4,27 @@ import './App.css'
 function App() {
   const stages: string[] = ['Backlog', 'To do', 'In progress', 'Done']
 
-  const [newTask, setNewTask] = useState('')
+  const [newTask, setNewTask] = useState<string>('')
+  const [tasks, setTasks] = useState({
+    backlog: new Array<string>(),
+    todo: [],
+    inprogress: [],
+    done: []
+  })
 
   function handleCreateNewTask(e:FormEvent) {
     e.preventDefault()
     console.log("create task " + newTask)
+
+    // new tasks are always created in backlog
+    const backlog: string[] = [...tasks.backlog, newTask]
+    // update state
+    setTasks({...tasks, backlog: backlog})
+
+    // reset task input
     setNewTask('')
+
+    //console.log(JSON.stringify(tasks))
   }
 
   return (
@@ -28,20 +43,25 @@ function App() {
         </div>
       </div>
 
-      <div className="content">
+      <div className="content stage-content">
         <h1 className="header">Board</h1>
-        <div className="stage-board">
-          <div className="stage-card">
-            <h2 className="stage-header">Backlog</h2>
-            <div className="task-card">Task 1</div>
-            <div className="task-card">Task 2</div>
-          </div>
-          <div className="stage-card">
-            <h2 className="stage-header">To do</h2>
-            <div className="task-card">Task 3</div>
-            <div className="task-card">Task 4</div>
-          </div>
-        </div>
+        <ul className="stage-board">
+          {stages.map((stage) => {
+            return <li className="stage-card" key={stage.replace(' ', '-')}>
+            <h2 className="stage-header">{stage}</h2>
+            <ul className="task-list">
+              <li className="task-card">Task 1</li>
+              <li className="task-card">Task 2</li>
+              <li className="task-card">Task 2</li>
+              <li className="task-card">Task 2</li>
+              <li className="task-card">Task 2</li>
+              <li className="task-card">Task 2</li>
+              <li className="task-card">Task 2</li>
+              <li className="task-card">Task 2</li>
+            </ul>
+          </li>
+          })}
+        </ul>
       </div>
     </>
   )

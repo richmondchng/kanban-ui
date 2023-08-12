@@ -52,6 +52,7 @@
 
 .form-content {
   text-align: left;
+  overflow: auto;
 }
 
 .form-content .form-label {
@@ -87,28 +88,58 @@
   transform: scale(0.98);
 }
 
-.stage-board {
-  text-align: left;
+/* .content h1 {
+  display: contents;
+  background-color: #3e8e41;
+} */
+
+.stage-content {
+  /* flex: content; */
+  /* width: auto; */
+  /* flex-flow: row ;
+  justify-content: space-around;
+  overflow: auto; */
+  /* display: inline-flex; */
+  /* justify-content: space-around;
+  flex-flow: row;   */
+  /* float: left;
+  position: relative; */
+  /* flex-flow: row; */
+
+  width: auto;
 }
 
-.stage-card {
+.stage-board {
+  list-style-type: none;
+  padding: 0;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.stage-board .stage-card {
   border-style: solid;
   border-width: 1px 1px 1px 1px;
   border-color: rgba(0,0,0,0.2);
-  border-radius: 5px; /* 5px rounded corners */
-  text-align: left;
+  border-radius: 5px;
   transition: 0.3s;
   padding: 2em;
-  display: inline-block;
   margin: 1em;
   width: 250px;
+  text-align: left;
+  display: inline-block;
 }
+
+.stage-card .task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
 /* 
 .stage-board .stage-card h2 {
   padding: 0;
 } */
 
-.task-card {
+.stage-card .task-list .task-card {
   border-style: solid;
   border-width: 1px 1px 1px 1px;
   border-color: rgba(0,0,0,0.2);
