@@ -18,18 +18,23 @@ function App() {
 
   function handleCreateNewTask(e:FormEvent) {
     e.preventDefault()
-    console.log("create task " + newTask)
 
-    // update tasks
-    setTasks(currentTasks => {
-      return [...currentTasks,
-        new Task(newTask, 0)
-      ]
-    })
-    console.log(tasks)
+    const isDuplicate:boolean = tasks.some((task) => task.title === newTask)
 
-    // reset task input
-    setNewTask('')
+    if(!isDuplicate) {
+      // update tasks
+      setTasks(currentTasks => {
+        return [...currentTasks,
+          new Task(newTask, 0)
+        ]
+      })
+      console.log(tasks)
+
+      // reset task input
+      setNewTask('')
+    } else {
+      handlePrintError(`Duplicate task with title ${newTask}`)
+    }
   }
 
   function handleClickTask(title:string) {
