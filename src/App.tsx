@@ -193,7 +193,7 @@ function App() {
                   return <li 
                     className="task-card" 
                     key={task.title}
-                    onClick={(e) => handleClickTask(task.title)}
+                    onClick={() => handleClickTask(task.title)}
                     >{task.title}</li>
                 })}
               </ul>
